@@ -27,7 +27,7 @@ const router = createBrowserRouter([
       {
         path: "shop-details/:shopId",
         element: <ShopDetails />,
-        loader: ({ params }) => fetch(`tshirts.json/${params.friendId}`),
+        loader: ({ params }) => fetch(`tshirts.json/${params.shopId}`),
       },
       {
         path: "about",
