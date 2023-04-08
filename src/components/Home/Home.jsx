@@ -4,10 +4,11 @@ import Header from '../Header/Header';
 
 const Home = () => {
     return (
-        <div>
-            <Header/>
-            <Outlet/>
-        </div>
+      <div className="lg:mx-10">
+      
+        <Header />
+        <Outlet />
+      </div>
     );
 };
 
