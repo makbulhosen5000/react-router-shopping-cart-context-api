@@ -98,7 +98,49 @@ const Header = () => {
           </div>
         </div>
         <div className={`${isOpen ? "block" : "hidden"} md:hidden`}>
-          <div className="px-2 pt-2 pb-3 sm:px-3">{/* mobile items */}</div>
+          <div className="px-2 pt-2 pb-3 sm:px-3">
+            {/* mobile items */}
+            <Link
+              to="/"
+              className={`text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium ${
+                location.pathname === "/"
+                  ? "bg-yellow-500 text-white"
+                  : "text-gray-300"
+              }`}
+            >
+              Home
+            </Link>
+            <Link
+              to="/shop"
+              className={`text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium ${
+                location.pathname === "/shop"
+                  ? "bg-yellow-500 text-white"
+                  : "text-gray-300"
+              }`}
+            >
+              Shop
+            </Link>
+            <Link
+              to="/about"
+              className={`text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium ${
+                location.pathname === "/about"
+                  ? "bg-yellow-500 text-white"
+                  : "text-gray-300"
+              }`}
+            >
+              About
+            </Link>
+            <Link
+              to="/contact"
+              className={`text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium ${
+                location.pathname === "/contact"
+                  ? "bg-yellow-500 text-white"
+                  : "text-gray-300"
+              }`}
+            >
+              Contact
+            </Link>
+          </div>
         </div>
       </div>
     </nav>

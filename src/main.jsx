@@ -4,10 +4,10 @@ import App from './App'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from './components/Home/Home';
-import Tshirt from './components/Shop/shop';
 import About from './components/About/About';
 import Contact from './components/Contact/Contact';
-import ShopDetails from './components/Shop/ShopDetails';
+import ShopDetails from './components/ShopDetails/ShopDetails';
+import Shop from './components/Shop/shop';
 
 
 const router = createBrowserRouter([
@@ -21,14 +21,15 @@ const router = createBrowserRouter([
       },
       {
         path: "shop",
-        element: <Tshirt />,
+        element: <Shop/>,
         loader: () => fetch("tshirts.json"),
       },
       {
         path: "shop-details/:shopId",
         element: <ShopDetails />,
-        loader: ({ params }) => fetch(`tshirts.json/${params.shopId}`),
+        loader: ({ params }) => fetch(`tshirts.json/${params.shopId}`)
       },
+
       {
         path: "about",
         element: <About />,
