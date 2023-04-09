@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useLoaderData, useNavigation } from "react-router-dom";
 import SingleShop from "./SingleShop";
 import OrderSummary from "./OrderSummary";
+import toast from "react-hot-toast";
 
 const Shop = () => {
   const tshirts = useLoaderData();
@@ -10,10 +11,20 @@ const Shop = () => {
 
   //add cart item
   const handleAddToCart = (tshirt) => {
-    setCart([...cart, tshirt]);
+
+    const exist = cart.find((pd)=>pd._id === tshirt._id);
+    if(exist){
+      toast("Already Added this product");
+    }else{
+        setCart([...cart, tshirt]);
+    }
   };
  
   //remove cart item
+  const removeCartItem = id =>{
+    const remaining = cart.filter(pd=>pd._id !== id);
+    setCart(remaining);
+  }
   
   const navigation = useNavigation();
 
@@ -39,7 +50,7 @@ const Shop = () => {
           </div>
         </div>
         <div className="col-span-1 bg-gray-500 text-center pt-4 text-white text-3xl">
-          <OrderSummary cart={cart} />
+          <OrderSummary cart={cart} removeCartItem={removeCartItem} />
         </div>
       </div>
     </div>
